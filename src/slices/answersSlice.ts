@@ -1,31 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { Answer, AnswersState } from '../types/types';
 
-// Начальное значение
-const initialState = {
-  value: 0,
+const initialState: AnswersState = {
+  answers: [],
 };
 
 const answersSlice = createSlice({
   name: 'answers',
   initialState,
-  // Редьюсеры в слайсах меняют состояние и ничего не возвращают
   reducers: {
-    // increment: (state) => {
-    //   state.value += 1;
-    // },
-    // decrement: (state) => {
-    //   state.value -= 1;
-    // },
-    // // Пример с данными
-    // incrementByAmount: (state, action) => {
-    //   state.value += action.payload;
-    // },
+    // Добавляем ответ
+    addAnswer: (state, action: PayloadAction<Answer>) => {
+      state.answers.push(action.payload);
+    },
   },
 });
 
-// Слайс генерирует действия, которые экспортируются отдельно
-// Действия генерируются автоматически из имен ключей редьюсеров
-export const { } = answersSlice.actions;
+// Экспортируем действия
+export const { addAnswer } = answersSlice.actions;
 
-// По умолчанию экспортируется редьюсер, сгенерированный слайсом
+// Экспортируем редьюсер
 export default answersSlice.reducer;

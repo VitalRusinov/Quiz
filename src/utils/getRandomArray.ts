@@ -1,5 +1,7 @@
-function getRandomArray(n: number): number[] {
+const getRandomArray = (n: number): number[] => {
   // Создаем массив от 0 до n
+  if (n < 1) return [];
+
   const array: number[] = Array.from({ length: n + 1 }, (_, i) => i);
 
   // Перемешиваем массив (Fisher-Yates)

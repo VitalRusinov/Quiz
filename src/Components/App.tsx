@@ -4,16 +4,21 @@ import { RootState, AppDispatch } from '../slices/index';
 
 import styles from './App.module.scss';
 import QuestionCard from './QuestionCard/QuestionCard';
+import Results from './Results/Results';
 import getRandomArray from '../utils/getRandomArray';
 import { Question } from '../types/types';
+import ProgressBar from './ProgressBar/ProgressBar';
 
-function App() {
+
+const App = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [randomQuestionsIndexesColl, setRandomQuestionsIndexesColl] = useState<number[]>([]);
+ // const [currentQuestion, setCurrentQuestion] = useState<Question | null>()
 
   const questions = useSelector((state: RootState) => state.questions.questions);
+  const answers = useSelector((state: RootState) => state.answers.answers);
 
-  console.log('questions:', questions);
+  //console.log('questions:', questions);
 
   useEffect(() => {
     setRandomQuestionsIndexesColl(getRandomArray(questions.length - 1));
@@ -31,15 +36,26 @@ function App() {
   const onAnswerSelected = () => {
     //setCurrentQuestionIndex((prevCount) => prevCount + 1);
     setCurrentQuestionIndex(() => currentQuestionIndex + 1);
-    //setCurrentQuestion(questions[randomQuestionsIndexes[currentQuestionIndex]])
   };
+
 
   let currentQuestion: Question = questions[randomQuestionsIndexesColl[currentQuestionIndex]];
 
+  //console.log('currentQuestion:', currentQuestion);
+
   return (
     <main className={styles['main-container']}>
-      <h1>Тестирование</h1>
-      <QuestionCard currentQuestion={currentQuestion} onAnswerSelected={onAnswerSelected} />
+      {
+        answers.length < questions.length &&
+        <>
+          <QuestionCard currentQuestion={currentQuestion} onAnswerSelected={onAnswerSelected} />
+          <ProgressBar value={currentQuestionIndex} max={questions.length} label={'kabek'}/>
+        </>
+      }
+      {
+        answers.length === questions.length &&
+        <Results />
+      }
     </main>
   )
 }
