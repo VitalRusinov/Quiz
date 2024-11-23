@@ -8,7 +8,9 @@ import ProgressBar from '../ProgressBar/ProgressBar';
 
 const QuestionCard: React.FC<QuestionProps> = ({ currentQuestion, onAnswerSelected }) => {
 
-  if(!currentQuestion) return null; // сомнительная конструкция
+  if (!currentQuestion) {
+    return <div>Loading...</div>;
+  }
 
   const dispatch = useDispatch();
 
@@ -18,27 +20,28 @@ const QuestionCard: React.FC<QuestionProps> = ({ currentQuestion, onAnswerSelect
 
   const { id, question, answers, correctAnswer } = currentQuestion;
 
-  // //Проблема здесь
   useEffect(() => {
-    setRandomAnswersIndexesColl(getRandomArray(answers.length - 1));
-  }, [])
+    if (answers && answers.length > 0) {
+      setRandomAnswersIndexesColl(getRandomArray(answers.length - 1));
+    }
+  }, [answers]);
+  
 
   const handleAnswerSelect = (answer: string) => {
     if (!isDisabled) {
       setSelectedAnswer(answer);
-      dispatch(
-        addAnswer({
-          id,
-          question,
-          correctAnswer,
-          isAnswerCorrect: answer === correctAnswer,
-        })
-      );
-
       setIsDisabled(true);
       setTimeout(() => {
         onAnswerSelected();
         setIsDisabled(false);
+        dispatch(
+          addAnswer({
+            id,
+            question,
+            correctAnswer,
+            isAnswerCorrect: answer === correctAnswer,
+          })
+        );
       }, 1000);
     }
   };
@@ -61,7 +64,6 @@ const QuestionCard: React.FC<QuestionProps> = ({ currentQuestion, onAnswerSelect
                   name="answer"
                   checked={selectedAnswer === answer}
                   onChange={() => handleAnswerSelect(answer)}
-                  disabled={isDisabled}
                 />
                 <label
                   htmlFor={`answer-${index}`}

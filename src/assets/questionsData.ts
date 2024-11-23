@@ -34,12 +34,6 @@ const questionsData: Question[] = [
     ],
     "correctAnswer": "Это элемент компьютера, с помощью которого обрабатывается информация, находящаяся как в собственной памяти, так и в памяти других устройств"
   },
-];
-
-export default questionsData;
-
-/*
-
   {
     "id": 4,
     "question": "Какие бывают разрядности у современных процессоров?",
@@ -106,4 +100,7 @@ export default questionsData;
     ],
     "correctAnswer": "BolSFS"
   }
-    */
+];
+
+export default questionsData;
+    

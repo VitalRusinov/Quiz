@@ -20,9 +20,15 @@ const App = () => {
 
   //console.log('questions:', questions);
 
+  // useEffect(() => {
+  //   setRandomQuestionsIndexesColl(getRandomArray(questions.length - 1));
+  // }, [])
+
   useEffect(() => {
-    setRandomQuestionsIndexesColl(getRandomArray(questions.length - 1));
-  }, [])
+    if (questions && questions.length > 0) {
+      setRandomQuestionsIndexesColl(getRandomArray(questions.length - 1));
+    }
+  }, [questions]);
 
   //const [currentQuestion, setCurrentQuestion] = useState<Question>(questions[randomQuestionsIndexesColl[currentQuestionIndex]]);
 
@@ -39,18 +45,19 @@ const App = () => {
   };
 
 
-  let currentQuestion: Question = questions[randomQuestionsIndexesColl[currentQuestionIndex]];
+  //let currentQuestion: Question = questions[randomQuestionsIndexesColl[currentQuestionIndex]];
 
-  //console.log('currentQuestion:', currentQuestion);
+  const currentQuestion: Question | null = 
+  questions[randomQuestionsIndexesColl[currentQuestionIndex]] || null;
 
   return (
     <main className={styles['main-container']}>
       {
-        answers.length < questions.length &&
-        <>
+        answers.length < questions.length && !!currentQuestion &&
+        <div className={styles['quiz-container']}>
           <QuestionCard currentQuestion={currentQuestion} onAnswerSelected={onAnswerSelected} />
           <ProgressBar value={currentQuestionIndex} max={questions.length} label={'kabek'}/>
-        </>
+        </div>
       }
       {
         answers.length === questions.length &&

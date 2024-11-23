@@ -7,8 +7,12 @@ import getResultTitle from './getResultTitle';
 
 const Results = () => {
   const answers = useSelector((state: RootState) => state.answers.answers);
-  const correctAnswersCount = answers.reduce(((acc, answer) => answer.isAnswerCorrect ? acc + 1: acc), 0)
+  const correctAnswersCount = answers.reduce(((acc, answer) => answer.isAnswerCorrect ? acc + 1: acc), 0);
 
+  const handleReload = () => {
+    window.location.reload();
+  };
+  
   return(
     <div className={styles.result}>
       {getResultTitle(correctAnswersCount ,answers.length)}
@@ -23,6 +27,12 @@ const Results = () => {
           )
         })}
       </ul>
+      {correctAnswersCount < answers.length &&
+      <div className={styles.button}>
+        <button onClick={handleReload}>Пройти еще раз</button>
+      </div>
+
+      }
     </div>
 
 
