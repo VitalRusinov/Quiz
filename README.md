@@ -11,3 +11,5 @@
 Библиотеки: i18next, Sass, EsLint, Prettier
 
 На выполнение задания ушло 11 часов рабочего времени
+
+Деплой проекта: https://quiz-bice-six.vercel.app/
