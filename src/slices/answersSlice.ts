@@ -14,7 +14,7 @@ const answersSlice = createSlice({
     },
     removeAllAnswer: (state) => {
       state.answers = [];
-    }
+    },
   },
 });
 

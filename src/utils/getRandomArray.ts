@@ -9,6 +9,6 @@ const getRandomArray = (n: number): number[] => {
   }
 
   return array;
-}
+};
 
 export default getRandomArray;

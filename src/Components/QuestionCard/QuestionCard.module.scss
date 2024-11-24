@@ -34,45 +34,43 @@
       gap: 20px;
 
       .question-card__answer {
+        .question-card__radio {
+          display: none; /* Убираем стандартное отображение кнопки */
+        }
 
-.question-card__radio {
-  display: none; /* Убираем стандартное отображение кнопки */
-}
+        .question-card__label {
+          display: inline-flex;
+          align-items: center; /* Центрируем текст по вертикали */
+          cursor: pointer;
+          position: relative;
+          line-height: 1.2;
+          padding-left: 30px; /* Отступ для псевдоэлемента */
 
-.question-card__label {
-  display: inline-flex;
-  align-items: center; /* Центрируем текст по вертикали */
-  cursor: pointer;
-  position: relative;
-  line-height: 1.2;
-  padding-left: 30px; /* Отступ для псевдоэлемента */
+          font-family: var(--font-family);
+          font-weight: 400;
+          font-size: 16px;
+          color: #000;
+        }
 
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 16px;
-  color: #000;
-}
+        /* Кастомная кнопка */
+        .question-card__label::before {
+          content: '';
+          width: 20px;
+          height: 20px;
+          border: 1px solid black;
+          border-radius: 50%;
+          background-color: white;
+          position: absolute;
+          left: 0;
+          top: 0;
+          transition: all 0.1s ease;
+        }
 
-/* Кастомная кнопка */
-.question-card__label::before {
-  content: '';
-  width: 20px;
-  height: 20px;
-  border: 1px solid black;
-  border-radius: 50%;
-  background-color: white;
-  position: absolute;
-  left: 0;
-  top: 0;
-  transition: all 0.1s ease;
-}
-
-/* Кнопка в выбранном состоянии */
-.question-card__radio:checked + .question-card__label::before {
-  border-color: #30f;
-  background: #30f;
-}
-
+        /* Кнопка в выбранном состоянии */
+        .question-card__radio:checked + .question-card__label::before {
+          border-color: #30f;
+          background: #30f;
+        }
       }
     }
   }

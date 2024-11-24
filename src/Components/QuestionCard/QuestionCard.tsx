@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { addAnswer } from '../../slices/answersSlice';
 import styles from './QuestionCard.module.scss';
-import { Question, QuestionProps } from '../../types/types';
+import { QuestionProps } from '../../types/types';
 import getRandomArray from '../../utils/getRandomArray';
-import ProgressBar from '../ProgressBar/ProgressBar';
 import { useTranslation } from 'react-i18next';
 
-
-const QuestionCard: React.FC<QuestionProps> = ({ currentQuestion, onAnswerSelected }) => {
+const QuestionCard: React.FC<QuestionProps> = ({
+  currentQuestion,
+  onAnswerSelected,
+}) => {
   const { t } = useTranslation();
 
   if (!currentQuestion) {
@@ -19,7 +20,9 @@ const QuestionCard: React.FC<QuestionProps> = ({ currentQuestion, onAnswerSelect
 
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isDisabled, setIsDisabled] = useState(false); // Изменить свойства при disabled
-  const [randomAnswersIndexesColl, setRandomAnswersIndexesColl] = useState<number[]>([]);
+  const [randomAnswersIndexesColl, setRandomAnswersIndexesColl] = useState<
+    number[]
+  >([]);
 
   const { id, question, answers, correctAnswer } = currentQuestion;
 
@@ -28,7 +31,6 @@ const QuestionCard: React.FC<QuestionProps> = ({ currentQuestion, onAnswerSelect
       setRandomAnswersIndexesColl(getRandomArray(answers.length - 1));
     }
   }, [answers]);
-  
 
   const handleAnswerSelect = (answer: string) => {
     if (!isDisabled) {
@@ -49,7 +51,6 @@ const QuestionCard: React.FC<QuestionProps> = ({ currentQuestion, onAnswerSelect
     }
   };
 
-
   return (
     <section className={styles['question-card']}>
       <h1>{t('testing')}</h1>
@@ -57,8 +58,8 @@ const QuestionCard: React.FC<QuestionProps> = ({ currentQuestion, onAnswerSelect
         <h2 className={styles['question-card__question']}>{question}</h2>
         <ul className={styles['question-card__answers']}>
           {randomAnswersIndexesColl.map((index) => {
-            const answer = answers[index]
-            return(
+            const answer = answers[index];
+            return (
               <li key={index} className={styles['question-card__answer']}>
                 <input
                   className={styles['question-card__radio']}
@@ -71,14 +72,16 @@ const QuestionCard: React.FC<QuestionProps> = ({ currentQuestion, onAnswerSelect
                 <label
                   htmlFor={`answer-${index}`}
                   className={`${styles['question-card__label']} ${
-                    selectedAnswer === answer ? styles['question-card__label--selected'] : ''
+                    selectedAnswer === answer
+                      ? styles['question-card__label--selected']
+                      : ''
                   }`}
                 >
                   {answer}
                 </label>
               </li>
-            )}
-          )}
+            );
+          })}
         </ul>
       </div>
     </section>

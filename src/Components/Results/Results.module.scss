@@ -5,10 +5,10 @@
   flex-direction: column;
   gap: 40px;
   overflow: auto;
-  scrollbar-width: none;  /* Для Firefox */
+  scrollbar-width: none; /* Для Firefox */
 
   &::-webkit-scrollbar {
-    display: none;  /* Скрытие скроллбара */
+    display: none; /* Скрытие скроллбара */
   }
 
   .title {
@@ -85,8 +85,8 @@
       width: 220px;
       height: 100%;
       border-radius: 10px;
-      background: #30f; 
-  
+      background: #30f;
+
       font-family: var(--font-family);
       font-weight: 700;
       font-size: 18px;

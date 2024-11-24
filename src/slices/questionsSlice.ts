@@ -8,7 +8,7 @@ interface QuestionsState {
 }
 
 const initialState: QuestionsState = {
-  questions: questionsData
+  questions: questionsData,
 };
 
 const questionsSlice = createSlice({
@@ -16,7 +16,5 @@ const questionsSlice = createSlice({
   initialState,
   reducers: {},
 });
-
-export const {} = questionsSlice.actions;
 
 export default questionsSlice.reducer;

@@ -1,5 +1,5 @@
 export interface Question {
-  id: number, // удалить
+  id: number; // удалить
   question: string;
   answers: string[];
   correctAnswer: string;
@@ -12,7 +12,7 @@ export interface QuestionProps {
 }
 
 export interface Answer {
-  id: number,
+  id: number;
   question: string;
   correctAnswer: string;
   isAnswerCorrect: boolean;
@@ -23,5 +23,5 @@ export interface AnswersState {
 }
 
 export interface ResultsProps {
-  setCurrentQuestionIndex: (num: number) => void
+  setCurrentQuestionIndex: (num: number) => void;
 }
