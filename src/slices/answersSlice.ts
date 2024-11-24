@@ -9,7 +9,6 @@ const answersSlice = createSlice({
   name: 'answers',
   initialState,
   reducers: {
-    // Добавляем ответ
     addAnswer: (state, action: PayloadAction<Answer>) => {
       state.answers.push(action.payload);
     },

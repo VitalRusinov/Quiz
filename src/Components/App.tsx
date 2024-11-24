@@ -13,18 +13,11 @@ import ProgressBar from './ProgressBar/ProgressBar';
 const App = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [randomQuestionsIndexesColl, setRandomQuestionsIndexesColl] = useState<number[]>([]);
- // const [currentQuestion, setCurrentQuestion] = useState<Question | null>()
 
   const questions = useSelector((state: RootState) => state.questions.questions);
   const answers = useSelector((state: RootState) => state.answers.answers);
 
   const questionLength = questions.length;
-
-  //console.log('questions:', questions);
-
-  // useEffect(() => {
-  //   setRandomQuestionsIndexesColl(getRandomArray(questions.length - 1));
-  // }, [])
 
   useEffect(() => {
     if (questions && questionLength > 0) {
@@ -32,21 +25,9 @@ const App = () => {
     }
   }, [questions]);
 
-  //const [currentQuestion, setCurrentQuestion] = useState<Question>(questions[randomQuestionsIndexesColl[currentQuestionIndex]]);
-
-
-  // console.log('questions[randomQuestionsIndexes[currentQuestionIndex]]:', questions[randomQuestionsIndexesColl[currentQuestionIndex]]);
-
-  // console.log('currentQuestionIndex:', currentQuestionIndex);
-  // console.log('randomQuestionsIndexes:', randomQuestionsIndexesColl);
-  //console.log('currentQuestion:', currentQuestion);
-
   const onAnswerSelected = () => {
     setCurrentQuestionIndex((prev) => prev + 1);
   };
-
-
-  //let currentQuestion: Question = questions[randomQuestionsIndexesColl[currentQuestionIndex]];
 
   const currentQuestion: Question | null = 
   questions[randomQuestionsIndexesColl[currentQuestionIndex]] || null;

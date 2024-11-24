@@ -5,11 +5,14 @@ import styles from './QuestionCard.module.scss';
 import { Question, QuestionProps } from '../../types/types';
 import getRandomArray from '../../utils/getRandomArray';
 import ProgressBar from '../ProgressBar/ProgressBar';
+import { useTranslation } from 'react-i18next';
+
 
 const QuestionCard: React.FC<QuestionProps> = ({ currentQuestion, onAnswerSelected }) => {
+  const { t } = useTranslation();
 
   if (!currentQuestion) {
-    return <div>Loading...</div>;
+    return <div>{t('loading')}</div>;
   }
 
   const dispatch = useDispatch();
@@ -49,7 +52,7 @@ const QuestionCard: React.FC<QuestionProps> = ({ currentQuestion, onAnswerSelect
 
   return (
     <section className={styles['question-card']}>
-      <h1>Тестирование</h1>
+      <h1>{t('testing')}</h1>
       <div className={styles['question-card__container']}>
         <h2 className={styles['question-card__question']}>{question}</h2>
         <ul className={styles['question-card__answers']}>

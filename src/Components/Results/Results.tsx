@@ -6,8 +6,11 @@ import styles from './Results.module.scss';
 import getResultTitle from './getResultTitle';
 import { removeAllAnswer } from '../../slices/answersSlice';
 import { ResultsProps } from '../../types/types';
+import { useTranslation } from 'react-i18next';
 
 const Results: React.FC<ResultsProps>  = ({setCurrentQuestionIndex}) => {
+  const { t } = useTranslation();
+
   const answers = useSelector((state: RootState) => state.answers.answers);
   const correctAnswersCount = answers.reduce(((acc, answer) => answer.isAnswerCorrect ? acc + 1: acc), 0);
 
@@ -34,7 +37,7 @@ const Results: React.FC<ResultsProps>  = ({setCurrentQuestionIndex}) => {
       </ul>
       {correctAnswersCount < answers.length &&
       <div className={styles.button}>
-        <button onClick={handleReRun}>Пройти еще раз</button>
+        <button onClick={handleReRun}>{t('again')}</button>
       </div>
       }
     </div>

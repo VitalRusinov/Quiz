@@ -1,27 +1,27 @@
 import styles from './Results.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const getResultTitle = (correctAnswersCount: number, answersCount: number) => {
+  const { t } = useTranslation();
+
   const num = correctAnswersCount / answersCount;
 
   switch(true) {
     case num === 1:
       return(
         <div className={styles.title}>
-          <h1>Поздравляем!</h1>
-          <span>
-            Вы правильно ответили на все вопросы.<br />
-            Вы действительно отлично разбираетесь в IT. 
-          </span>
+          <h1>{t('congratulations')}</h1>
+          <span>{t('allCorrect1')}<br />{t('allCorrect2')}</span>
         </div>
       )
   
     case num < 1 && num >= 0.5:
       return(
         <div className={styles.title}>
-          <h1>Хороший результат!</h1>
+          <h1>{t('good')}</h1>
           <span>
-            Вы ответили правильно на {correctAnswersCount} вопросов.<br />
-            Так держать! 
+            {t('answered')}{t('answers', { count: correctAnswersCount })}.<br />
+            {t('keep')}
           </span>
         </div>
       )
@@ -29,10 +29,10 @@ const getResultTitle = (correctAnswersCount: number, answersCount: number) => {
       case num > 0 && num < 0.5:
       return(
         <div className={styles.title}>
-          <h1>Так себе результат!</h1>
+          <h1>{t('bad')}</h1>
           <span>
-            Вы ответили правильно на {correctAnswersCount} вопроса.<br />
-            Нужно подучить теорию.
+            {t('answered')}{t('answers', { count: correctAnswersCount })}.<br />
+            {t('needLern')}
           </span>
         </div>
       )
@@ -40,16 +40,16 @@ const getResultTitle = (correctAnswersCount: number, answersCount: number) => {
       case num === 0:
         return(
           <div className={styles.title}>
-            <h1>{`Упс :(`}</h1>
+            <h1>{t('oops')}</h1>
             <span>
-              Вы неправильно ответили на все вопросы. <br />
-              Нужно подучить теорию.
+              {t('allIncorrect')}<br />
+              {t('needLern')}
             </span>
           </div>
         )
 
     default:
-      console.log('Введены неправильные данные в функцию getResultTitle()')
+      console.log(t('default'))
   }
 }
 

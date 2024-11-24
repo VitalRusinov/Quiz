@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./ProgressBar.module.scss";
 
 interface ProgressBarProps {
-  value: number; // Текущее значение прогресса (0-100)
+  value: number; // Текущее значение прогресса
   max: number; // Максимальное значение прогресса
   label?: string; // Дополнительная подпись для прогресс-бара
 }
