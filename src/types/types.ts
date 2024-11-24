@@ -21,3 +21,7 @@ export interface Answer {
 export interface AnswersState {
   answers: Answer[];
 }
+
+export interface ResultsProps {
+  setCurrentQuestionIndex: (num: number) => void
+}

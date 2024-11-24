@@ -13,11 +13,14 @@ const answersSlice = createSlice({
     addAnswer: (state, action: PayloadAction<Answer>) => {
       state.answers.push(action.payload);
     },
+    removeAllAnswer: (state) => {
+      state.answers = [];
+    }
   },
 });
 
 // Экспортируем действия
-export const { addAnswer } = answersSlice.actions;
+export const { addAnswer, removeAllAnswer } = answersSlice.actions;
 
 // Экспортируем редьюсер
 export default answersSlice.reducer;
