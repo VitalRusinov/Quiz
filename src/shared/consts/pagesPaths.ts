@@ -1,6 +1,6 @@
 export const pagesPaths = {
   start: '/',
   questions: '/questions',
-  // signUp: '/signup',
+  result: '/result',
   // notFound: '*',
 };

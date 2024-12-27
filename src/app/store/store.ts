@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { answersReducer, questionsReducer } from 'shared/lib/store/slices';
+import { answersReducer, questionsReducer } from 'shared/lib/store';
 
 export const store = configureStore({
   reducer: {

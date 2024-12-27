@@ -7,7 +7,7 @@ import './question.scss'
 /**Понять, нужен ли disabled  */
 
 interface IQuestionProps {
-  currentQuestion: IQuestion | null,
+  currentQuestion: IQuestion,
   onChange: (answer: string) => void,
 }
 
@@ -18,9 +18,9 @@ export const Question: React.FC<IQuestionProps> = ({
   //const { t } = useTranslation();
 
   //i18n
-  if (!currentQuestion) {
-    return <div>{'loading'}</div>;
-  }
+  // if (!currentQuestion) {
+  //   return <div>{'loading'}</div>;
+  // }
 
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [randomIndexes, setRandomIndexes] = useState<number[]>([]);
@@ -34,14 +34,20 @@ export const Question: React.FC<IQuestionProps> = ({
   //     setRandomAnswersIndexesColl(getRandomArray(answers.length - 1));
   //   }
   // }, [answers]);
-  setRandomIndexes(getRandomArray(answers.length - 1));
+  
+  useEffect(() => {
+    if (answers && answers.length > 0) {
+      setRandomIndexes(getRandomArray(answers.length - 1));
+    }
+  }, [answers]);
+  //setRandomIndexes(getRandomArray(answers.length - 1));
 
   const getLabelCasses = useCallback((answer: string) => {
     if (answer === selectedAnswer) {
       return 'label selected'
     }
     return 'label';
-  }, [])
+  }, [selectedAnswer])
 
   const handleAnswerSelect = (answer: string) => {
     setSelectedAnswer(answer);

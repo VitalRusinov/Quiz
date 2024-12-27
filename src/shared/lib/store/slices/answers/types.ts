@@ -1,4 +1,4 @@
 export interface IAnswer {
   questionId: number;
-  currectAnswer: string;
+  currentAnswer: string;
 }
