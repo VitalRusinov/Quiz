@@ -1,16 +1,15 @@
-import { FC } from 'react';
 import './MainButton.scss'
 
 interface IMainButton {
   title: string,
   onClick: () => void,
+  disabled?: boolean,
 }
 
   
-export const MainButton: FC<IMainButton> = (props) => {
-  const {title, onClick} = props;
+export const MainButton: React.FC<IMainButton> = ({title, onClick, disabled = false}) => {
 
   return (
-    <button onClick={onClick}>{title}</button>
+    <button onClick={onClick} disabled={disabled}>{title}</button>
   )
 }

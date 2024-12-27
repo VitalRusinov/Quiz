@@ -1,9 +1,4 @@
-export interface Question {
-  id: number; // удалить
-  question: string;
-  answers: string[];
-  correctAnswer: string;
-}
+
 
 //Тип для пропсов для QuestionCard
 export interface QuestionProps {

@@ -1,5 +1,11 @@
+import { Header } from "widgets/header"
+
 export const QuestionsPage = () => {
   return (
-    <div>Questions!</div>
+    <div>
+      <Header />
+      {/*<Questions />
+      */}
+    </div>
   )
 }

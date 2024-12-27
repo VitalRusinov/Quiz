@@ -1,4 +1,4 @@
-const getRandomArray = (n: number): number[] => {
+export const getRandomArray = (n: number): number[] => {
   if (n < 1) return [];
 
   const array: number[] = Array.from({ length: n + 1 }, (_, i) => i);
@@ -11,4 +11,3 @@ const getRandomArray = (n: number): number[] => {
   return array;
 };
 
-export default getRandomArray;
