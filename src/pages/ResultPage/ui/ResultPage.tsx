@@ -1,5 +1,11 @@
+import { Header } from "widgets/header"
+import { Results } from "widgets/results/ui/results"
+
 export const ResultPage = () => {
   return (
-    <div>Result</div>
+    <div>
+      <Header />
+      <Results />
+    </div>
   )
 }

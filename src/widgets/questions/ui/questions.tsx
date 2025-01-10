@@ -13,6 +13,7 @@ export const Questions = () => {
   const questions: IQuestion[] = useAppSelector(selectQuestions);
   const questionsLength = questions.length;
 
+  //Удалить
   const answersFinal: IAnswer[] = useAppSelector(selectAnswers);
 
 
