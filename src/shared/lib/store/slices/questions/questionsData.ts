@@ -36,7 +36,7 @@ export const questionsData: IQuestion[] = [
     ],
     correctAnswer:
       'Это элемент компьютера, с помощью которого обрабатывается информация, находящаяся как в собственной памяти, так и в памяти других устройств',
-  },
+  },/*
   {
     id: 4,
     question: 'Какие бывают разрядности у современных процессоров?',
@@ -94,5 +94,5 @@ export const questionsData: IQuestion[] = [
     question: 'Какой файловой системы не существует?',
     answers: ['Fat', 'NTFS', 'APFS', 'BolSFS'],
     correctAnswer: 'BolSFS',
-  },
+  },*/
 ];

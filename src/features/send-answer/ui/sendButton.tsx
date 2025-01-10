@@ -1,16 +1,27 @@
+import { useCallback } from 'react';
 import { MainButton } from 'shared/ui/MainButton/'
+import { addAnswer, IAnswer, useAppDispatch } from 'shared/lib/store';
+
 import './sendButton.scss'
-import { ISendProps, useSendAnswer } from '../model/send-answer';
 
+export interface ISendProps {
+  handleSend: () => void,
+  answer: IAnswer,
+}
 
-
-//Заменить слово на i18n
 export const SendAnswerButton: React.FC<ISendProps> = (props) => {
-  const sendAnswer = useSendAnswer(props);
-  const { answer } = props;
-  const {questionId} = answer;
+  const { handleSend, answer } = props;
+  const {currentAnswer} = answer;
 
+  const dispatch = useAppDispatch();
+
+  const sendAnswer = useCallback ((answer: IAnswer) => {
+    dispatch(addAnswer(answer));
+    handleSend();
+  }, [])
+
+//Заменить слово на i18n, не блокируется кнопка
   return (
-    <MainButton title='Отправить ответ' onClick={sendAnswer} disabled={!questionId}/>
+    <MainButton title='Отправить ответ' onClick={() => sendAnswer(answer)} disabled={!currentAnswer}/>
   )
 }
