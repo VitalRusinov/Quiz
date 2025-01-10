@@ -1,4 +1,4 @@
-import { MainButton } from 'shared/ui/MainButton/MainButton'
+import { MainButton } from 'shared/ui/MainButton/'
 import './sendButton.scss'
 import { ISendProps, useSendAnswer } from '../model/send-answer';
 

@@ -1,4 +1,5 @@
 import { Header } from "widgets/header"
+import { ProgressBar } from "widgets/ProgressBar"
 import { Questions } from "widgets/questions"
 
 export const QuestionsPage = () => {
@@ -6,6 +7,7 @@ export const QuestionsPage = () => {
     <div>
       <Header />
       <Questions />
+      <ProgressBar />
     </div>
   )
 }

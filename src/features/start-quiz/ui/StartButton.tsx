@@ -1,4 +1,4 @@
-import { MainButton } from 'shared/ui/MainButton/MainButton'
+import { MainButton } from 'shared/ui/MainButton'
 import './StartButton.scss'
 import { useStartQuiz } from '../model/start-quiz';
 
