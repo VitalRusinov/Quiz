@@ -1,12 +1,12 @@
-import { LanguageChanger } from "features/change-language"
-import { ThemeChanger } from "features/change-theme"
+import { LanguageSwitcher } from "features/language-switcher"
+import { ThemeSwitcher } from "features/theme-switcher"
 
 
 export const Header = () => {
   return (
     <div className="header">
-      <ThemeChanger/>
-      <LanguageChanger />
+      <ThemeSwitcher/>
+      <LanguageSwitcher />
     </div>
   )
 }

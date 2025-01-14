@@ -1,0 +1,8 @@
+@import "themes/light";
+@import "themes/dark";
+
+body {
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

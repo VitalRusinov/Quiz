@@ -1,6 +1,6 @@
 import { IAnswer, IQuestion, selectAnswers, selectQuestions, useAppSelector } from "shared/lib/store";
 import { ResultCard } from "./resultCard";
-import { TryAgainButton } from "features/try-again/ui/tryAgainButton";
+import { RestartQuizButton } from "features/restartQuiz";
 
 export const Results = () => {
   const questions: IQuestion[] = useAppSelector(selectQuestions);
@@ -23,7 +23,7 @@ export const Results = () => {
           )
         })}
       </div>
-      <TryAgainButton />
+      <RestartQuizButton />
     </div>
   )
 }
