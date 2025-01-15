@@ -10,30 +10,28 @@ import { ResultPage } from 'pages/ResultPage';
 
 export const AppRouter = () => {
   return (
-      <div>
-        <BrowserRouter>
-          <Routes>
-            <Route
-              path={pagesPaths.start}
-              element={(
-                <StartPage />
-              )}
-            />
-            <Route
-              path={pagesPaths.questions}
-              element={(
-                <QuestionsPage />
-              )}
-            />
-            <Route
-              path={pagesPaths.result}
-              element={(
-                <ResultPage />
-              )}
-            />
-          </Routes>
-        </BrowserRouter>
-      </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path={pagesPaths.start}
+          element={(
+            <StartPage />
+          )}
+        />
+        <Route
+          path={pagesPaths.questions}
+          element={(
+            <QuestionsPage />
+          )}
+        />
+        <Route
+          path={pagesPaths.result}
+          element={(
+            <ResultPage />
+          )}
+        />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

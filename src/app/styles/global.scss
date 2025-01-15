@@ -1,8 +1,20 @@
-@import "themes/light";
-@import "themes/dark";
+:root {
+  --header-height: 60px;
+  --header-button-height: 30px;
+  --header-button-width: 110px;
 
-body {
-  margin: 0;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  --border-radius: 1.5rem;
+  --padding: 1rem;
+
+  --button-height: 60px;
+}
+
+[class$="__container"] {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }

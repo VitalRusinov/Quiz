@@ -1,0 +1,19 @@
+$start-btn-color: #a972cb;
+
+.button {
+  background: none;
+  border: 1px solid $start-btn-color;
+  font: inherit;
+  line-height: 1;
+
+  transition: 0.25s;
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 0 0 2em $start-btn-color;
+    border-color: $start-btn-color;
+    color: #fff;
+  }
+}
+
+

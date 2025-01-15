@@ -1,17 +1,47 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import React, { useState } from 'react';
+import { useLanguage } from '../model/useLanguage';
+import { GlobeIcon } from './GlobeIcon';
 
-export const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
+import './LanguageSwitcher.scss';
 
-  const handleLanguageChange = (lang: string) => {
-    i18n.changeLanguage(lang);
-  };
+const LANGUAGES = [
+  { code: 'en', label: 'English' },
+  { code: 'ru', label: 'Русский' },
+];
+
+export const LanguageSwitcher: React.FC = () => {
+  const { currentLanguage, changeLanguage } = useLanguage();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => setIsOpen((prev) => !prev);
+  const getCurrentLanguageLabel = () => LANGUAGES.find(lng => lng.code === currentLanguage)?.label
 
   return (
-    <div>
-      <button onClick={() => handleLanguageChange('en')}>English</button>
-      <button onClick={() => handleLanguageChange('ru')}>Русский</button>
+    <div className="language-switcher">
+      <button
+        className="language-switcher__button"
+        onClick={toggleDropdown}
+      >
+        <GlobeIcon className="language-switcher__icon" />
+        <span>{getCurrentLanguageLabel()}</span>
+      </button>
+
+      {isOpen && (
+        <ul className="language-switcher__dropdown">
+          {LANGUAGES.map(({ code, label }) => (
+            <li
+              key={code}
+              className='language-switcher__option'
+              onClick={() => {
+                changeLanguage(code);
+                setIsOpen(false);
+              }}
+            >
+              {label}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

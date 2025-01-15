@@ -1,4 +1,4 @@
-import { FC } from "react"
+import React from "react"
 
 import './ContentContainer.scss'
 
@@ -6,9 +6,9 @@ interface IContentContainer {
   readonly children: React.ReactNode;
 }
 
-export const ContentContainer: FC<IContentContainer> = ({ children }) => {
+export const ContentContainer: React.FC<IContentContainer> = ({ children }) => {
   return (
-    <div className="contentContainer">
+    <div className="content__container" id='content'>
       { children }
     </div>
   )

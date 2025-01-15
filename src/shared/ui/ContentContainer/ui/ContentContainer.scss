@@ -1,0 +1,9 @@
+#content {
+  min-height: 50%;
+  height: max-content;
+
+  background: var(--content-background-color);
+  border-radius: var(--border-radius);
+  box-shadow: 5px 5px 20px var(--shadow-color);
+  padding: var(--padding);
+}

@@ -1,12 +1,12 @@
 import { LanguageSwitcher } from "features/language-switcher"
 import { ThemeSwitcher } from "features/theme-switcher"
-
+import './Header.scss'
 
 export const Header = () => {
   return (
-    <div className="header">
+    <header className="header">
       <ThemeSwitcher/>
       <LanguageSwitcher />
-    </div>
+    </header>
   )
 }

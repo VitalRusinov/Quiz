@@ -10,6 +10,11 @@ interface IMainButton {
 export const MainButton: React.FC<IMainButton> = ({title, onClick, disabled = false}) => {
 
   return (
-    <button onClick={onClick} disabled={disabled}>{title}</button>
+    <button 
+      className='button'
+      onClick={onClick}
+      disabled={disabled}>
+      {title}
+    </button>
   )
 }
