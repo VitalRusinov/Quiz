@@ -1,10 +1,12 @@
 import { ContentContainer } from "shared/ui/ContentContainer"
 import './greeting.scss'
-//Поменять надпись на i18n
+import { useTranslation } from "react-i18next";
+
 export const Greeting = () => {
+  const { t } = useTranslation();
   return (
     <ContentContainer>
-      <span className="greeting">Для начала квиза, нажмите Старт!</span>
+      <span className="greeting">{t('greeting')}</span>
     </ContentContainer>
   )
 }

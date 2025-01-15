@@ -20,7 +20,8 @@
   width: 100%;
   min-height: var(--button-height);
   border-radius: var(--border-radius);
-  border: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
 }
 
 .button:after {

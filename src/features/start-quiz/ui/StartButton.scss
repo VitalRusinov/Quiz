@@ -2,11 +2,12 @@ $start-btn-color: #a972cb;
 
 .button {
   background: none;
-  border: 1px solid $start-btn-color;
   font: inherit;
   line-height: 1;
 
   transition: 0.25s;
+  font-size: 2rem;
+  font-weight: 800;
 
   &:hover,
   &:focus {
