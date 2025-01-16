@@ -1,6 +1,6 @@
 import { IQuestion } from "./types";
 
-export const questionsData: IQuestion[] = [
+export const questionsData_ru: IQuestion[] = [
   {
     id: 1,
     question: 'Что такое операционная система?',

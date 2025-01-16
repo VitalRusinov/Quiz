@@ -1,77 +1,53 @@
-.question-card {
-  flex: 1;
+.question {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.answers {
+  list-style-type: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
 
-  h1 {
-    font-family: var(--font-family);
-    font-weight: 800;
-    font-size: 48px;
-    color: #000;
-    margin-top: 0;
-  }
-
-  .question-card__container {
-    border-radius: 20px;
-    flex: 1;
-    background: #f7f7f7;
-    padding: 40px;
-    box-sizing: border-box;
-
-    .question-card__question {
-      font-family: var(--font-family);
-      font-weight: 700;
-      font-size: 24px;
-      color: #000;
-      margin-top: 0;
+  .answer {
+    .radio {
+      display: none;
     }
 
-    .question-card__answers {
-      list-style-type: none;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    .label {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      position: relative;
+      line-height: 1.2;
+      padding-left: 30px;
 
-      .question-card__answer {
-        .question-card__radio {
-          display: none; /* Убираем стандартное отображение кнопки */
-        }
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--text-color);
+    }
 
-        .question-card__label {
-          display: inline-flex;
-          align-items: center; /* Центрируем текст по вертикали */
-          cursor: pointer;
-          position: relative;
-          line-height: 1.2;
-          padding-left: 30px; /* Отступ для псевдоэлемента */
+    .label::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--border-color);
+      border-radius: 50%;
+      background-color: white;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transition: all 0.1s ease;
+    }
 
-          font-family: var(--font-family);
-          font-weight: 400;
-          font-size: 16px;
-          color: #000;
-        }
-
-        /* Кастомная кнопка */
-        .question-card__label::before {
-          content: '';
-          width: 20px;
-          height: 20px;
-          border: 1px solid black;
-          border-radius: 50%;
-          background-color: white;
-          position: absolute;
-          left: 0;
-          top: 0;
-          transition: all 0.1s ease;
-        }
-
-        /* Кнопка в выбранном состоянии */
-        .question-card__radio:checked + .question-card__label::before {
-          border-color: #30f;
-          background: #30f;
-        }
-      }
+    .radio:checked + .label::before {
+      border-color: var(--button-color);
+      background: var(--button-color);
     }
   }
 }
+

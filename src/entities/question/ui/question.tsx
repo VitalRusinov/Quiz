@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { IQuestion } from 'shared/lib/store/slices/questions/types';
+import { IQuestion } from 'shared/store/slices/questions/types';
 import { getRandomArray } from 'shared/lib/getRandom';
 import { ContentContainer } from 'shared/ui/ContentContainer';
 import './question.scss'
@@ -15,32 +15,17 @@ export const Question: React.FC<IQuestionProps> = ({
   currentQuestion,
   onChange,
 }) => {
-  //const { t } = useTranslation();
-
-  //i18n
-  // if (!currentQuestion) {
-  //   return <div>{'loading'}</div>;
-  // }
 
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [randomIndexes, setRandomIndexes] = useState<number[]>([]);
 
   const { question, answers } = currentQuestion;
-
-  // Проверить будет ли рандом разный, мб стоит вернуть useEffect
-
-  // useEffect(() => {
-  //   if (answers && answers.length > 0) {
-  //     setRandomAnswersIndexesColl(getRandomArray(answers.length - 1));
-  //   }
-  // }, [answers]);
   
   useEffect(() => {
     if (answers && answers.length > 0) {
       setRandomIndexes(getRandomArray(answers.length - 1));
     }
   }, [answers]);
-  //setRandomIndexes(getRandomArray(answers.length - 1));
 
   const getLabelCasses = useCallback((answer: string) => {
     if (answer === selectedAnswer) {
@@ -57,13 +42,13 @@ export const Question: React.FC<IQuestionProps> = ({
   return (
     <ContentContainer> 
       <p className='question'>{question}</p>
-      <ul className='answers-list'>
+      <ul className='answers'>
         {randomIndexes.map((index) => {
           const answer = answers[index];
           return (
             <li key={index} className='answer'>
               <input
-                className='radio-button'
+                className='radio'
                 type="radio"
                 id={`answer-${index}`}
                 name="answer"

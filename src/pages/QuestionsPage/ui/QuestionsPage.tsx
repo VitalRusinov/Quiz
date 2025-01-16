@@ -4,7 +4,7 @@ import { Questions } from "widgets/questions"
 
 export const QuestionsPage = () => {
   return (
-    <div>
+    <div className="questionsPage__container">
       <Header />
       <Questions />
       <ProgressBar />

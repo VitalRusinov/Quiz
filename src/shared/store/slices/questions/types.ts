@@ -4,7 +4,3 @@ export interface IQuestion {
   answers: string[];
   correctAnswer: string;
 }
-
-export interface IQuestionsState {
-  questions: IQuestion[];
-}

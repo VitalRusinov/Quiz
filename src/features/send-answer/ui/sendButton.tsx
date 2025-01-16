@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { MainButton } from 'shared/ui/MainButton/'
-import { addAnswer, IAnswer, useAppDispatch } from 'shared/lib/store';
+import { addAnswer, IAnswer, useAppDispatch } from 'shared/store';
 
 import './sendButton.scss'
 

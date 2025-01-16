@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { pagesPaths } from "shared/consts";
-import { removeAllAnswer, useAppDispatch } from "shared/lib/store";
+import { removeAllAnswer, useAppDispatch } from "shared/store";
 
 export const useRestart = () => {
   const navigate = useNavigate();

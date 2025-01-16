@@ -3,18 +3,14 @@ import { useLanguage } from '../model/useLanguage';
 import { GlobeIcon } from './GlobeIcon';
 
 import './LanguageSwitcher.scss';
-
-const LANGUAGES = [
-  { code: 'en', label: 'English' },
-  { code: 'ru', label: 'Русский' },
-];
+import { languages } from 'shared/i18n';
 
 export const LanguageSwitcher: React.FC = () => {
   const { currentLanguage, changeLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => setIsOpen((prev) => !prev);
-  const getCurrentLanguageLabel = () => LANGUAGES.find(lng => lng.code === currentLanguage)?.label
+  const getCurrentLanguageLabel = () => languages.find(lng => lng.code === currentLanguage)?.label
 
   return (
     <div className="language-switcher">
@@ -28,7 +24,7 @@ export const LanguageSwitcher: React.FC = () => {
 
       {isOpen && (
         <ul className="language-switcher__dropdown">
-          {LANGUAGES.map(({ code, label }) => (
+          {languages.map(({ code, label }) => (
             <li
               key={code}
               className='language-switcher__option'

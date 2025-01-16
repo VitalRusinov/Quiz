@@ -1,63 +1,59 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Question } from "entities/question"
-import { IAnswer, IQuestion, selectAnswers, selectQuestions, useAppSelector } from "shared/lib/store";
+import { IQuestion,  selectQuestions,  useAppSelector } from "shared/store";
 import { getRandomArray } from "shared/lib/getRandom";
 import { SendAnswerButton } from "features/send-answer";
-import { useNavigate } from "react-router-dom";
 import { pagesPaths } from "shared/consts";
+import { useTranslation } from "react-i18next";
+import { IQuestionsState } from "shared/store/slices/questions/questionsSlice";
+
+import './questions.scss';
 
 export const Questions = () => {
-  const navigate = useNavigate()
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
+  const [currentQuestion, setCurrentQuestion] = useState<IQuestion | null>(null);
+  const [currentAnswer, setCurrentAnswer] = useState<string>('');
 
-  const questions: IQuestion[] = useAppSelector(selectQuestions);
-  const questionsLength = questions.length;
+  const navigate = useNavigate()
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language;
 
-  //Удалить
-  const answersFinal: IAnswer[] = useAppSelector(selectAnswers);
-
+  let questions: IQuestionsState = useAppSelector(selectQuestions);
+  const questionsLength = questions[currentLanguage].length;
 
   const randomQuestionsIndexes = useRef<number[]>([]);
-
-  const [currentQuestion, setCurrentQuestion] = useState<IQuestion | null>(null)
 
   useEffect(() => {
     if (questionsLength > 0) {
       randomQuestionsIndexes.current = getRandomArray(questionsLength - 1);
-      setCurrentQuestion(questions[randomQuestionsIndexes.current[0]]);
+      setCurrentQuestion(questions[currentLanguage][randomQuestionsIndexes.current[0]]);
     }
   }, [questionsLength]);
-
-  const [currentAnswer, setCurrentAnswer] = useState<string>('');
-  // const [randomQuestionsIndexes, setRandomQuestionsIndexes] = useState<number[]>(
-  //   getRandomArray(questionLength - 1)
-  // );
 
   const onChange = useCallback((answer: string) => {
     setCurrentAnswer(answer);
   }, [])
 
-  const handleSend = () => {
+  const handleSend = useCallback(() => {
     setCurrentAnswer('');
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-  };
+  },[]);
 
   useEffect(() => {
-    console.log('currentQuestionIndex', currentQuestionIndex);
     if (currentQuestionIndex >= questionsLength) {
-      console.log('answersFinal', answersFinal);
       navigate(pagesPaths.result);
       return;
     }
   }, [currentQuestionIndex])
   
-
   useEffect(() => {
-    setCurrentQuestion(questions[randomQuestionsIndexes.current[currentQuestionIndex]]);
-  }, [questions, currentQuestionIndex]);
+    setCurrentQuestion(questions[currentLanguage][randomQuestionsIndexes.current[currentQuestionIndex]]);
+  }, [questions, currentQuestionIndex, currentLanguage]);
 
   return (
-    <div className="questions__container">
+    <div id='questions__container' className="questions__container">
+      <h1>{t('testing')}</h1>
       {currentQuestion && 
         <>
           <Question currentQuestion={currentQuestion} onChange={onChange}/>

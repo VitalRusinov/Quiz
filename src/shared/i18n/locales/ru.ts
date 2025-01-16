@@ -3,7 +3,7 @@ const ru = {
     theme_switcher: 'Тема',
     greeting: 'Для начала квиза, нажмите Старт!',
     start: 'Старт!',
-    // testing: 'Тестирование',
+    testing: 'Тестирование',
     // again: 'Пройти еще раз',
     // loading: 'Загрузка...',
 

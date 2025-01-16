@@ -1,20 +1,3 @@
-$start-btn-color: #a972cb;
 
-.button {
-  background: none;
-  font: inherit;
-  line-height: 1;
-
-  transition: 0.25s;
-  font-size: 2rem;
-  font-weight: 800;
-
-  &:hover,
-  &:focus {
-    box-shadow: inset 0 0 0 2em $start-btn-color;
-    border-color: $start-btn-color;
-    color: #fff;
-  }
-}
 
 

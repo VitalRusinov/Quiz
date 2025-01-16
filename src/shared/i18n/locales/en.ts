@@ -3,7 +3,7 @@ const en = {
     theme_switcher: 'Theme',
     greeting: 'Click Start to begin the quiz!',
     start: 'Start!',
-    // testing: 'Testing',
+    testing: 'Testing',
     // again: 'Go through it again',
     // loading: 'Loading...',
 

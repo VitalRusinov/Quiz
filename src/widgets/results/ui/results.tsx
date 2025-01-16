@@ -1,4 +1,4 @@
-import { IAnswer, IQuestion, selectAnswers, selectQuestions, useAppSelector } from "shared/lib/store";
+import { IAnswer, IQuestion, selectAnswers, selectQuestions, useAppSelector } from "shared/store";
 import { ResultCard } from "./resultCard";
 import { RestartQuizButton } from "features/restartQuiz";
 
