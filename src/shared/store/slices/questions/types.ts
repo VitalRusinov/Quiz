@@ -1,6 +1,11 @@
+interface IAnswer {
+  answerId: number,
+  answer: string,
+}
+
 export interface IQuestion {
   id: number;
   question: string;
-  answers: string[];
-  correctAnswer: string;
+  answers: IAnswer[];
+  correctAnswerId: number;
 }

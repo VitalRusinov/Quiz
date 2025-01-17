@@ -3,7 +3,7 @@ import { Header } from "widgets/header"
 
 export const StartPage = () => {
   return (
-    <div className="startPage__container">
+    <div className="__container">
       <Header />
       <GreetingQuiz />
     </div>

@@ -4,6 +4,7 @@ const en = {
     greeting: 'Click Start to begin the quiz!',
     start: 'Start!',
     testing: 'Testing',
+    send: 'Send Answer',
     // again: 'Go through it again',
     // loading: 'Loading...',
 

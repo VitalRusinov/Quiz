@@ -3,15 +3,31 @@ import { MainButton } from 'shared/ui/MainButton/'
 import { addAnswer, IAnswer, useAppDispatch } from 'shared/store';
 
 import './sendButton.scss'
+import { useTranslation } from 'react-i18next';
+
+// export interface ISendProps {
+//   handleSend: () => void;
+//   answer: 
+//     | IAnswer 
+//     | {
+//         questionId: number;
+//         currentAnswerId: null;
+//       };
+// }
 
 export interface ISendProps {
-  handleSend: () => void,
-  answer: IAnswer,
+  handleSend: () => void;
+  answer: IAnswer | {
+    questionId: number;
+    currentAnswerId: null;
+  }
 }
+
 
 export const SendAnswerButton: React.FC<ISendProps> = (props) => {
   const { handleSend, answer } = props;
-  const {currentAnswer} = answer;
+  const { t } = useTranslation();
+  const {currentAnswerId} = answer;
 
   const dispatch = useAppDispatch();
 
@@ -20,8 +36,13 @@ export const SendAnswerButton: React.FC<ISendProps> = (props) => {
     handleSend();
   }, [])
 
-//Заменить слово на i18n, не блокируется кнопка
   return (
-    <MainButton title='Отправить ответ' onClick={() => sendAnswer(answer)} disabled={!currentAnswer}/>
+    <MainButton 
+      title={t('send')}
+      onClick={() => {
+        if(currentAnswerId)
+        sendAnswer(answer)}
+      }
+      disabled={!currentAnswerId}/>
   )
 }

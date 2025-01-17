@@ -13,7 +13,7 @@ import './questions.scss';
 export const Questions = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [currentQuestion, setCurrentQuestion] = useState<IQuestion | null>(null);
-  const [currentAnswer, setCurrentAnswer] = useState<string>('');
+  const [currentAnswerId, setCurrentAnswerId] = useState<number | null>(null);
 
   const navigate = useNavigate()
   const { t, i18n } = useTranslation();
@@ -31,12 +31,12 @@ export const Questions = () => {
     }
   }, [questionsLength]);
 
-  const onChange = useCallback((answer: string) => {
-    setCurrentAnswer(answer);
+  const onChange = useCallback((answerId: number) => {
+    setCurrentAnswerId(answerId);
   }, [])
 
   const handleSend = useCallback(() => {
-    setCurrentAnswer('');
+    setCurrentAnswerId(null);
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   },[]);
 
@@ -59,7 +59,7 @@ export const Questions = () => {
           <Question currentQuestion={currentQuestion} onChange={onChange}/>
           <SendAnswerButton 
             handleSend={handleSend}
-            answer={{questionId: currentQuestion.id, currentAnswer}}/>
+            answer={{questionId: currentQuestion.id, currentAnswerId}}/>
         </>
       }
     </div>

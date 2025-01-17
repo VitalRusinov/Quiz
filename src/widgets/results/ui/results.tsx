@@ -1,18 +1,28 @@
 import { IAnswer, IQuestion, selectAnswers, selectQuestions, useAppSelector } from "shared/store";
-import { ResultCard } from "./resultCard";
+import { ResultCard } from "./resultCard/resultCard";
 import { RestartQuizButton } from "features/restartQuiz";
+import { useTranslation } from "react-i18next";
+import './results.scss'
+import { ContentContainer } from "shared/ui/ContentContainer";
 
 export const Results = () => {
-  const questions: IQuestion[] = useAppSelector(selectQuestions);
+  
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language;
+
+  const questions: IQuestion[] = useAppSelector(selectQuestions)[currentLanguage];
   const answers: IAnswer[] = useAppSelector(selectAnswers);
 
   return (
     <div className="results__container">
-      <div className="results__cards-container">
+      <h1>Результат</h1>
+      <ContentContainer>
+{ /*<div className="results__cards-container">*/}
         {answers && answers.map((answer, index) => {
-          const {questionId, currentAnswer} = answer;
+          const {questionId, currentAnswerId} = answer;
           const question = questions.find(question => question.id === questionId) as IQuestion;
-          const isAnswerCorrect = question.correctAnswer === currentAnswer;
+          const isAnswerCorrect = question.correctAnswerId === currentAnswerId;
+          const currentAnswer = question.answers.find(answer => answer.answerId === currentAnswerId)?.answer as string;
 
           return (
             <ResultCard 
@@ -22,7 +32,8 @@ export const Results = () => {
               isAnswerCorrect={isAnswerCorrect}/>
           )
         })}
-      </div>
+        </ContentContainer>
+      {/*</div>*/}
       <RestartQuizButton />
     </div>
   )

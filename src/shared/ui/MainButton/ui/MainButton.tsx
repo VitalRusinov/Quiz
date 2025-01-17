@@ -2,7 +2,7 @@ import './MainButton.scss'
 
 interface IMainButton {
   title: string,
-  onClick: () => void,
+  onClick?: () => void,
   disabled?: boolean,
 }
 

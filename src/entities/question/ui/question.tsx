@@ -8,7 +8,7 @@ import './question.scss'
 
 interface IQuestionProps {
   currentQuestion: IQuestion,
-  onChange: (answer: string) => void,
+  onChange: (answerId: number) => void,
 }
 
 export const Question: React.FC<IQuestionProps> = ({
@@ -16,27 +16,31 @@ export const Question: React.FC<IQuestionProps> = ({
   onChange,
 }) => {
 
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [selectedAnswerId, setSelectedAnswerId] = useState<number | null>(null);
   const [randomIndexes, setRandomIndexes] = useState<number[]>([]);
 
   const { question, answers } = currentQuestion;
   
+  useEffect(() => {
+    setSelectedAnswerId(null);
+  }, [currentQuestion]);
+
   useEffect(() => {
     if (answers && answers.length > 0) {
       setRandomIndexes(getRandomArray(answers.length - 1));
     }
   }, [answers]);
 
-  const getLabelCasses = useCallback((answer: string) => {
-    if (answer === selectedAnswer) {
+  const getLabelCasses = useCallback((answerId: number) => {
+    if (answerId === selectedAnswerId) {
       return 'label selected'
     }
     return 'label';
-  }, [selectedAnswer])
+  }, [selectedAnswerId])
 
-  const handleAnswerSelect = (answer: string) => {
-    setSelectedAnswer(answer);
-    onChange(answer);
+  const handleAnswerSelect = (answerId: number) => {
+    setSelectedAnswerId(answerId);
+    onChange(answerId);
   }
 
   return (
@@ -44,7 +48,7 @@ export const Question: React.FC<IQuestionProps> = ({
       <p className='question'>{question}</p>
       <ul className='answers'>
         {randomIndexes.map((index) => {
-          const answer = answers[index];
+          const {answerId, answer} = answers[index];
           return (
             <li key={index} className='answer'>
               <input
@@ -52,12 +56,12 @@ export const Question: React.FC<IQuestionProps> = ({
                 type="radio"
                 id={`answer-${index}`}
                 name="answer"
-                checked={selectedAnswer === answer}
-                onChange={() => handleAnswerSelect(answer)}
+                checked={selectedAnswerId === answerId}
+                onChange={() => handleAnswerSelect(answerId)}
               />
               <label
                 htmlFor={`answer-${index}`}
-                className={getLabelCasses(answer)}
+                className={getLabelCasses(answerId)}
               >
                 {answer}
               </label>

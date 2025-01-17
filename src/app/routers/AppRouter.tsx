@@ -34,18 +34,3 @@ export const AppRouter = () => {
     </BrowserRouter>
   );
 };
-
-/*
-            <Route
-              path={pages.login}
-              element={(
-                <Login />
-            )}
-            />
-            <Route
-              path={pages.signUp}
-              element={(
-                  <SignUp />
-            )}
-            />
-            */

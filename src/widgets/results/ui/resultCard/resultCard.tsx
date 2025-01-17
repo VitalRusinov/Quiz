@@ -1,4 +1,5 @@
-import { getCardClasses } from "../model/getCardClasses";
+import { getCardClasses } from "../../model/getCardClasses";
+import './resultCard.scss';
 
 interface IResultCardProps {
   question: string,
