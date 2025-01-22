@@ -10,7 +10,6 @@ import { Question } from './question/question';
 
 import './questions.scss';
 
-
 export const Questions = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);
   const [currentQuestion, setCurrentQuestion] = useState<IQuestion | null>(

@@ -1,4 +1,4 @@
 #greeting-quiz__container {
-  height: 100vh;
+  height: calc(100vh - var(--header-height) * 2);
   max-width: 1230px;
 }

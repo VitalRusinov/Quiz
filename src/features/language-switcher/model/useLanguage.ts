@@ -1,8 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import {
-  Languages,
-  LOCAL_STORAGE_LANGUAGE_KEY,
-} from 'shared/i18n';
+import { Languages, LOCAL_STORAGE_LANGUAGE_KEY } from 'shared/i18n';
 
 export const useLanguage = () => {
   const { i18n } = useTranslation();

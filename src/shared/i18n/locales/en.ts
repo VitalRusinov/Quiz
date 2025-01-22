@@ -7,6 +7,7 @@ const en = {
     send: 'Send Answer',
     again: 'Go through again',
     results: 'Results',
+    created: 'Created by ',
   },
 };
 
