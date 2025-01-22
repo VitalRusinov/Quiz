@@ -1,11 +1,11 @@
-import { createSelector } from '@reduxjs/toolkit'
+import { createSelector } from '@reduxjs/toolkit';
 
 const selectBase = createSelector(
-    (state: RootState) => state,
-    (state) => state.answers
-)
+  (state: RootState) => state,
+  (state) => state.answers,
+);
 
 export const selectAnswers = createSelector(
-    selectBase,
-    (state) => state.answers
-)
+  selectBase,
+  (state) => state.answers,
+);

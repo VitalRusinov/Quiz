@@ -1,8 +1,8 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 export enum Theme {
-  Light = "light",
-  Dark = "dark",
+  Light = 'light',
+  Dark = 'dark',
 }
 
 interface ThemeContextType {
@@ -10,6 +10,6 @@ interface ThemeContextType {
   toggleTheme?: () => void;
 }
 
-export const LOCAL_STORAGE_THEME_KEY = 'theme'
+export const LOCAL_STORAGE_THEME_KEY = 'theme';
 
 export const ThemeContext = createContext<ThemeContextType>({});

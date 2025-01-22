@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import './ProgressBar.scss';
-import { IAnswer, selectAnswers, selectQuestions, useAppSelector } from 'shared/store';
+import {
+  IAnswer,
+  selectAnswers,
+  selectQuestions,
+  useAppSelector,
+} from 'shared/store';
 import { useTranslation } from 'react-i18next';
 import { IQuestionsState } from 'shared/store/slices/questions/questionsSlice';
 
 export const ProgressBar: React.FC = () => {
-  const [max, setMax] = useState<number>(0)
+  const [max, setMax] = useState<number>(0);
   const { i18n } = useTranslation();
   const currentLanguage = i18n.language;
 
   const questions: IQuestionsState = useAppSelector(selectQuestions);
 
   useEffect(() => {
-    setMax(questions[currentLanguage].length)
-  }, [currentLanguage])
+    setMax(questions[currentLanguage].length);
+  }, [currentLanguage]);
 
   const answers: IAnswer[] = useAppSelector(selectAnswers);
   const value = answers.length;
@@ -22,27 +27,24 @@ export const ProgressBar: React.FC = () => {
   const percentage = (progress / max) * 100;
 
   return (
-    <div className='progress-bar'>
-      {/* Верхняя линия с числами */}
-      <div className='progress-bar__numbers'>
-        <span className='progress-bar__start'>0</span>
-        <span className='progress-bar__end'>{max}</span>
+    <div className="progress-bar">
+      <div className="progress-bar__numbers">
+        <span className="progress-bar__start">0</span>
+        <span className="progress-bar__end">{max}</span>
       </div>
-      {/* Основной трек прогресс-бара */}
-      <div className='progress-bar__track'>
+      <div className="progress-bar__track">
         <div
-          className='progress-bar__fill'
+          className="progress-bar__fill"
           style={{ width: `${percentage}%` }}
           aria-valuenow={progress}
           aria-valuemax={max}
         />
       </div>
-      {/* Подпись с текущим значением */}
       <div
-        className='progress-bar__value'
-        style={{ 
+        className="progress-bar__value"
+        style={{
           left: `${percentage}%`,
-          width: `${100 - percentage}%`
+          width: `${100 - percentage}%`,
         }}
       >
         {progress}

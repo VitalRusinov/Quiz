@@ -22,8 +22,5 @@ const answersSlice = createSlice({
   },
 });
 
-// Экспортируем действия
 export const { addAnswer, removeAllAnswer } = answersSlice.actions;
-
-// Экспортируем редьюсер
 export default answersSlice.reducer;

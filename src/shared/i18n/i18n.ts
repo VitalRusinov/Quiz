@@ -5,7 +5,8 @@ import en from './locales/en';
 import { Languages, LOCAL_STORAGE_LANGUAGE_KEY } from './config/consts';
 
 const defaultLng =
-    (localStorage.getItem(LOCAL_STORAGE_LANGUAGE_KEY) as Languages) || Languages.ru
+  (localStorage.getItem(LOCAL_STORAGE_LANGUAGE_KEY) as Languages) ||
+  Languages.ru;
 
 i18n.use(initReactI18next).init({
   lng: defaultLng,

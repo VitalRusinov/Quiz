@@ -1,6 +1,6 @@
-@import "styles/themes/light";
-@import "styles/themes/dark";
-@import "styles/global";
+@use 'styles/themes/light' as *;
+@use 'styles/themes/dark' as *;
+@use 'styles/global' as *;
 
 body {
   font-family: 'Open Sans', sans-serif;

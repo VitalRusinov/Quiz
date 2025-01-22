@@ -16,13 +16,13 @@
     border: 2px solid var(--resultCard-incorrect-border-color);
   }
 
-  .results__answer-card__question {
+  &__question {
     font-weight: 700;
     font-size: 1.25rem;
     line-height: normal;
   }
 
-  .results__answer-card__currentAnswer {
+  &__currentAnswer {
     font-size: 1rem;
   }
 }

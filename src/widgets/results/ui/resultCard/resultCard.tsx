@@ -1,14 +1,13 @@
-import { getCardClasses } from "../../model/getCardClasses";
+import { getCardClasses } from '../../model/getCardClasses';
 import './resultCard.scss';
 
 interface IResultCardProps {
-  question: string,
-  currentAnswer: string,
-  isAnswerCorrect: boolean,
+  question: string;
+  currentAnswer: string;
+  isAnswerCorrect: boolean;
 }
 
 export const ResultCard: React.FC<IResultCardProps> = (props) => {
-
   const { question, currentAnswer, isAnswerCorrect } = props;
 
   return (
@@ -16,5 +15,5 @@ export const ResultCard: React.FC<IResultCardProps> = (props) => {
       <p className="results__answer-card__question">{question}</p>
       <p className="results__answer-card__currentAnswer">{currentAnswer}</p>
     </div>
-  )
-}
+  );
+};

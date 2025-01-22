@@ -1,11 +1,10 @@
-import { MainButton } from "shared/ui/MainButton";
-import { useRestart } from "../model/restart";
+import { MainButton } from 'shared/ui/MainButton';
+import { useRestart } from '../model/restart';
+import { useTranslation } from 'react-i18next';
 
-//i18n
 export const RestartQuizButton = () => {
+  const { t } = useTranslation();
   const restart = useRestart();
 
-  return (
-    <MainButton title='Ещё раз' onClick={restart}/>
-  )
-}
+  return <MainButton title={t('again')} onClick={restart} />;
+};

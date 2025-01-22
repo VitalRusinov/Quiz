@@ -1,15 +1,15 @@
 @keyframes slideme {
   0% {
-      left: -30px;
-      margin-left: 0px;
+    left: -30px;
+    margin-left: 0px;
   }
   30% {
-      left: 110%;
-      margin-left: 80px;
+    left: 110%;
+    margin-left: 80px;
   }
   100% {
-      left: 110%;
-      margin-left: 80px;
+    left: 110%;
+    margin-left: 80px;
   }
 }
 
@@ -26,7 +26,7 @@
 }
 
 .button:after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: -200px;

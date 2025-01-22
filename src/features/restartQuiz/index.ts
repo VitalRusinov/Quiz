@@ -1,1 +1,1 @@
-export { RestartQuizButton } from './ui/restartButton'
+export { RestartQuizButton } from './ui/restartButton';

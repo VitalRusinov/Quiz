@@ -1,11 +1,11 @@
-import { Providers } from './providers'
-import { AppRouter } from './routers'
-import './App.scss'
+import { Providers } from './providers';
+import { AppRouter } from './routers';
+import './App.scss';
 
 export function App() {
-    return (
-        <Providers>
-            <AppRouter />
-        </Providers>
-    )
+  return (
+    <Providers>
+      <AppRouter />
+    </Providers>
+  );
 }

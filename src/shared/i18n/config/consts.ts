@@ -1,6 +1,6 @@
 export enum Languages {
-  en = "en",
-  ru = "ru",
+  en = 'en',
+  ru = 'ru',
 }
 export const languages = [
   { code: Languages.en, label: 'English' },

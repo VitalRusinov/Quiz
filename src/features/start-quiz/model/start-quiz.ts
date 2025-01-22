@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
-import { pagesPaths } from "shared/consts";
+import { useNavigate } from 'react-router-dom';
+import { pagesPaths } from 'shared/consts';
 
 export const useStartQuiz = () => {
   const navigate = useNavigate();
@@ -7,4 +7,4 @@ export const useStartQuiz = () => {
   return () => {
     navigate(pagesPaths.questions);
   };
-}
+};

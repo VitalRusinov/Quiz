@@ -1,1 +1,1 @@
-export {StartQuizButton} from './ui/StartButton'
+export { StartQuizButton } from './ui/StartButton';

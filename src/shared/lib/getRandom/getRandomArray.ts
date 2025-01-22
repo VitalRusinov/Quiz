@@ -10,4 +10,3 @@ export const getRandomArray = (n: number): number[] => {
 
   return array;
 };
-

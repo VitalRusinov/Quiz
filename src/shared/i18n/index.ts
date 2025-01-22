@@ -1,1 +1,1 @@
-export {languages} from './config/consts';
+export { languages } from './config/consts';

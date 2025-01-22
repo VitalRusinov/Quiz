@@ -1,1 +1,1 @@
-export {pagesPaths} from './pagesPaths'
+export { pagesPaths } from './pagesPaths';

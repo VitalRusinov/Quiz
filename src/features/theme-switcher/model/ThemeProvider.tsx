@@ -1,12 +1,16 @@
-import React, { ReactNode, useEffect, useState } from "react";
-import { LOCAL_STORAGE_THEME_KEY, Theme, ThemeContext } from "../config/ThemeContext";
+import React, { ReactNode, useEffect, useState } from 'react';
+import {
+  LOCAL_STORAGE_THEME_KEY,
+  Theme,
+  ThemeContext,
+} from '../config/ThemeContext';
 
 interface ThemeProviderProps {
   children: ReactNode;
 }
 
 const defaultTheme =
-    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.Light
+  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.Light;
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(defaultTheme);
@@ -24,7 +28,9 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === Theme.Light ? Theme.Dark : Theme.Light));
+    setTheme((prevTheme) =>
+      prevTheme === Theme.Light ? Theme.Dark : Theme.Light,
+    );
   };
 
   return (

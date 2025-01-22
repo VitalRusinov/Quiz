@@ -1,1 +1,1 @@
-export {getRandomArray} from './getRandomArray'
+export { getRandomArray } from './getRandomArray';

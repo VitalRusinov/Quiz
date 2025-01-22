@@ -10,14 +10,12 @@ export const LanguageSwitcher: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => setIsOpen((prev) => !prev);
-  const getCurrentLanguageLabel = () => languages.find(lng => lng.code === currentLanguage)?.label
+  const getCurrentLanguageLabel = () =>
+    languages.find((lng) => lng.code === currentLanguage)?.label;
 
   return (
     <div className="language-switcher">
-      <button
-        className="language-switcher__button"
-        onClick={toggleDropdown}
-      >
+      <button className="language-switcher__button" onClick={toggleDropdown}>
         <GlobeIcon className="language-switcher__icon" />
         <span>{getCurrentLanguageLabel()}</span>
       </button>
@@ -27,7 +25,7 @@ export const LanguageSwitcher: React.FC = () => {
           {languages.map(({ code, label }) => (
             <li
               key={code}
-              className='language-switcher__option'
+              className="language-switcher__option"
               onClick={() => {
                 changeLanguage(code);
                 setIsOpen(false);

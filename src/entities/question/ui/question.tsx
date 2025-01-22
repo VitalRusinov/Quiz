@@ -2,25 +2,22 @@ import { useCallback, useEffect, useState } from 'react';
 import { IQuestion } from 'shared/store/slices/questions/types';
 import { getRandomArray } from 'shared/lib/getRandom';
 import { ContentContainer } from 'shared/ui/ContentContainer';
-import './question.scss'
-
-/**Понять, нужен ли disabled  */
+import './question.scss';
 
 interface IQuestionProps {
-  currentQuestion: IQuestion,
-  onChange: (answerId: number) => void,
+  currentQuestion: IQuestion;
+  onChange: (answerId: number) => void;
 }
 
 export const Question: React.FC<IQuestionProps> = ({
   currentQuestion,
   onChange,
 }) => {
-
   const [selectedAnswerId, setSelectedAnswerId] = useState<number | null>(null);
   const [randomIndexes, setRandomIndexes] = useState<number[]>([]);
 
   const { question, answers } = currentQuestion;
-  
+
   useEffect(() => {
     setSelectedAnswerId(null);
   }, [currentQuestion]);
@@ -31,28 +28,31 @@ export const Question: React.FC<IQuestionProps> = ({
     }
   }, [answers]);
 
-  const getLabelCasses = useCallback((answerId: number) => {
-    if (answerId === selectedAnswerId) {
-      return 'label selected'
-    }
-    return 'label';
-  }, [selectedAnswerId])
+  const getLabelClasses = useCallback(
+    (answerId: number) => {
+      if (answerId === selectedAnswerId) {
+        return 'label selected';
+      }
+      return 'label';
+    },
+    [selectedAnswerId],
+  );
 
   const handleAnswerSelect = (answerId: number) => {
     setSelectedAnswerId(answerId);
     onChange(answerId);
-  }
+  };
 
   return (
-    <ContentContainer> 
-      <p className='question'>{question}</p>
-      <ul className='answers'>
+    <ContentContainer>
+      <p className="question">{question}</p>
+      <ul className="answers">
         {randomIndexes.map((index) => {
-          const {answerId, answer} = answers[index];
+          const { answerId, answer } = answers[index];
           return (
-            <li key={index} className='answer'>
+            <li key={index} className="answer">
               <input
-                className='radio'
+                className="radio"
                 type="radio"
                 id={`answer-${index}`}
                 name="answer"
@@ -61,7 +61,7 @@ export const Question: React.FC<IQuestionProps> = ({
               />
               <label
                 htmlFor={`answer-${index}`}
-                className={getLabelCasses(answerId)}
+                className={getLabelClasses(answerId)}
               >
                 {answer}
               </label>

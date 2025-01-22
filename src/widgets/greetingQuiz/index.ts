@@ -1,1 +1,1 @@
-export {GreetingQuiz} from './ui/greetingQuiz'
+export { GreetingQuiz } from './ui/greetingQuiz';
