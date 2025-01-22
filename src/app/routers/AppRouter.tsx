@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { StartPage } from 'pages/StartPage';
-import { QuestionsPage } from 'pages/QuestionsPage';
-import { pagesPaths } from 'shared/consts';
-import { ResultPage } from 'pages/ResultPage';
+import { StartPage } from 'pages/start';
+import { QuestionsPage } from 'pages/questions';
+import { pagesPaths } from 'shared/paths';
+import { ResultPage } from 'pages/results';
 
 export const AppRouter = () => {
   return (

@@ -1,14 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Question } from 'entities/question';
 import { IQuestion, selectQuestions, useAppSelector } from 'shared/store';
 import { getRandomArray } from 'shared/lib/getRandom';
 import { SendAnswerButton } from 'features/send-answer';
-import { pagesPaths } from 'shared/consts';
+import { pagesPaths } from 'shared/paths';
 import { useTranslation } from 'react-i18next';
-import { IQuestionsState } from 'shared/store/slices/questions/questionsSlice';
+import { IQuestionsState } from 'shared/store';
+import { Question } from './question/question';
 
 import './questions.scss';
+
 
 export const Questions = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0);

@@ -1,6 +1,6 @@
-import { Greeting } from 'entities/greeting';
 import { StartQuizButton } from 'features/start-quiz';
 import './greetingQuiz.scss';
+import { Greeting } from './greeting/greeting';
 
 export const GreetingQuiz = () => {
   return (

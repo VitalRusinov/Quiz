@@ -1,1 +1,1 @@
-export { languages } from './config/consts';
+export { Languages, languages, LOCAL_STORAGE_LANGUAGE_KEY } from './consts';

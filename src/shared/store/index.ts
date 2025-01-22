@@ -1,6 +1,7 @@
 export { useAppDispatch, useAppSelector } from './redux';
 
 export { default as questionsReducer } from './slices/questions/questionsSlice';
+export type { IQuestionsState } from './slices/questions/questionsSlice';
 export { default as answersReducer } from './slices/answers/answersSlice';
 
 export { selectQuestions } from './slices/questions/questionsSelectors';

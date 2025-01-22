@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { IQuestion } from 'shared/store/slices/questions/types';
+import { IQuestion } from 'shared/store';
 import { getRandomArray } from 'shared/lib/getRandom';
 import { ContentContainer } from 'shared/ui/ContentContainer';
 import './question.scss';

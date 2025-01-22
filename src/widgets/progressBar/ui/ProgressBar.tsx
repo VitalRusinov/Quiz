@@ -7,7 +7,7 @@ import {
   useAppSelector,
 } from 'shared/store';
 import { useTranslation } from 'react-i18next';
-import { IQuestionsState } from 'shared/store/slices/questions/questionsSlice';
+import { IQuestionsState } from 'shared/store';
 
 export const ProgressBar: React.FC = () => {
   const [max, setMax] = useState<number>(0);

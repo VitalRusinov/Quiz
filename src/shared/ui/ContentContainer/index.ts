@@ -1,1 +1,1 @@
-export { ContentContainer } from './ui/ContentContainer';
+export { ContentContainer } from './ContentContainer';

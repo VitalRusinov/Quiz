@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import ru from './locales/ru';
 import en from './locales/en';
-import { Languages, LOCAL_STORAGE_LANGUAGE_KEY } from './config/consts';
+import { Languages, LOCAL_STORAGE_LANGUAGE_KEY } from './consts';
 
 const defaultLng =
   (localStorage.getItem(LOCAL_STORAGE_LANGUAGE_KEY) as Languages) ||
