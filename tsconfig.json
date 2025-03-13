@@ -33,11 +33,5 @@
   },
   "include": [
     "src",
-    "Старое/assets",
-    "Старое/locales",
-    "Старое/Components",
-    "Старое/slices",
-    "Старое/types",
-    "Старое/i18n.ts"
   ]
 }
